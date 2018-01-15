@@ -1,10 +1,11 @@
-# gaza-works-online
+# Gaza Works Online:
 ## Gaza works online freelancing application
 
-GWO is an online freelancing application that allows users to:
-- Post projects of their own to the users of the GWO and collect teams to work on that project.
-- Propose a project to a user of the GWO.
-- Browse available projects for you to apply for.
-
-![File Structure](https://www.dropbox.com/home/myonlineupload/gwo-readme?preview=20180115_095625.jpg)
-![Signed in user journy](https://photos-3.dropbox.com/t/2/AADq80RMz9WUUEQR_wASAC9vae7aAYv2I1t8MK-wnjnygg/12/722220053/jpeg/32x32/1/_/1/2/20180115_095642.jpg/EKCGtJ0HGPAEIAIoAg/JJW3UMBLpFgT4X8sYx7o9tJdXluTOm7D995Pu-RVpFI?size=32x32&size_mode=5)
+### GWO is an online freelancing application that allows users to:
+1. Post Projects: to share them with other free users asking them to submit work proposals on that project, after this happens a team is built-up for the porpose of working on that posted project.
+2. Submit Proposals: a user can submit a job proposal for any project that have been posted into GWO, and then waits for a response from project owners for approving the proposal or declining it.
+3. Browse: a user can choose from Browse option to do one of the following:
+3. A: Browse Categories: allows users to navigate through existing categories in GWO.
+3. B: Browse Freelancers: allows users to navigate through existing users list in GWO.
+3. C: Stream: allows users to keep up with categorie/users who he have followed.
+4. Rating: a user is capable to rate team members after a project is completed.
