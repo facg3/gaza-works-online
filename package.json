@@ -24,8 +24,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "test",
-    "start": "node ./src",
-    "watch": "nodemon ./src"
+    "start": "node ./src/server.js",
+    "watch": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
