@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
     }
     return res.send({ result: selectProjectsResult });
   });
-  // return res.send('Hello world');
 });
 
 module.exports = router;
