@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
     }
     return res.send({ result: selectProjectsResult });
   });
-  // return res.send('Hello world');
 });
 
 router.get('/post-project', (req, res) => {
@@ -25,17 +24,16 @@ router.get('/post-project', (req, res) => {
     deadLine: '2018-02-02',
     lifetime: 60,
   };
-  insertProject(projectObj, (insertProjectDBConnErr, insertProjectQueryResult) => {
-    if (insertProjectDBConnErr) {
-      return res.status(500).send({ error: insertProjectDBConnErr });
-    } else if (insertProjectQueryResult.rowCount !== 1) {
+  insertProject(projectObj, (dbConnErr, queryResult) => {
+    if (dbConnErr) return res.status(500).send({ error: dbConnErr });
+    else if (queryResult.rowCount !== 1) {
       return res.send({
-        result: insertProjectQueryResult,
+        result: queryResult,
         responseText: 'Inserting Project Failed',
       });
     }
     return res.send({
-      result: insertProjectQueryResult,
+      result: queryResult,
       responseText: 'Inserted Project Successfully',
     });
   });
