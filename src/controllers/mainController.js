@@ -1,9 +1,16 @@
 const express = require('express');
+const dbCon = require('../database/dbConnection');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('Hello world');
+  dbCon.query('select * from projects', (dbConError, selectProjectsResult) => {
+    if (dbConError) {
+      return res.status(500).send({ error: dbConError });
+    }
+    return res.send({ result: selectProjectsResult });
+  });
+  // return res.send('Hello world');
 });
 
 module.exports = router;
