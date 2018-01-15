@@ -1,28 +1,37 @@
 {
   "name": "gaza-works-online",
   "version": "0.0.0",
-  "description": "Freelancing website",
+  "description": "Gaza works online freelancing application",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^4.15.0"
-  },
-  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "eslint": "^4.15.0",
+    "env2": "^2.2.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
     "nodemon": "^1.14.11",
+    "path": "^0.12.7",
+    "pg": "^7.4.1",
+    "serve-favicon": "^2.4.5",
+    "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "test",
-    "start": "node /src",
-    "watch": "nodemon /src"
+    "start": "node ./src",
+    "watch": "nodemon ./src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/facg3/gaza-works-online.git"
   },
-  "author": "Sultanassi94 YahyaHB NoureldeanSaed",
+  "author": "sultanassi94 yahyabh noureldeansaed",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/facg3/gaza-works-online/issues"
