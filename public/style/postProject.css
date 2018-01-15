@@ -354,6 +354,7 @@ input[type=checkbox]:focus:invalid:focus {
 
 /* Style your form buttons. Follow your heart */
 
+
 input[type="submit"],
 button {
 	display: inline-block;
