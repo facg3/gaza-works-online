@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "watch": "nodemon src/server.js"
+    "watch": "nodemon src/server.js",
+    "test": "node ./src/tests/controllers/getTests.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,10 @@
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
   },
   "dependencies": {
     "express": "^4.16.2",
