@@ -2,3 +2,18 @@
   margin: 0 auto;
   padding: 0
 }
+
+.html {
+  background-color: #007c9f;
+}
+
+.header {
+  top: 0;
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/agileteam.jpg);
+  background-size: cover;
+  background-position: center;
+}
