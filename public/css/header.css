@@ -19,6 +19,8 @@
 	transition: all 0.3s;
 }
 
+
+
 nav-item:hover {
 	background-position: 0 0;
 }
