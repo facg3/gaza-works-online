@@ -1,0 +1,16 @@
+* {
+  margin: 0 auto;
+  padding: 0
+}
+
+.html {
+  background-color: #007c9f;
+}
+
+.header {
+  background-repeat: no-repeat;
+  height: calc(100vh - 50px);
+  background-image: url(../img/agileteam.jpg);
+  background-size: cover;
+  background-position: center top;
+}

@@ -1,0 +1,36 @@
+{
+  "name": "gaza-works-online",
+  "version": "1.0.0",
+  "description": "GWO is an online freelancing application that allows users to:\r - Post projects of their own to the users of the GWO and collect teams to work on that project.\r - Propose a project to a user of the GWO.\r - Browse available projects for you to apply for.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js",
+    "test": "node ./src/tests/controllers/getTests.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facg3/gaza-works-online.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/facg3/gaza-works-online/issues"
+  },
+  "homepage": "https://github.com/facg3/gaza-works-online#readme",
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.14.11",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "serve-favicon": "^2.4.5"
+  }
+}
