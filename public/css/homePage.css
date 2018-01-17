@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Vollkorn:700italic,400');
 @import url('https://fonts.googleapis.com/css?family=Muli');
 
-
 * {
   margin: 0 auto;
   padding: 0
@@ -23,8 +22,7 @@ body {
   background-position: center top;
 }
 
-/**/
-
+/*First Screen CSS*/
 .brand-block {
   height: 100%;
   text-align: center;
@@ -37,13 +35,11 @@ body {
   color: #008099
 }
 
-
 .brand-block p {
   font-family: 'Muli', sans-serif;
   padding: 35px;
   font-size: 1.5em;
 }
-
 
 #submit {
   height: 50px;
@@ -58,7 +54,6 @@ body {
   cursor: pointer;
   transition: background .3s ease-in-out;
 }
-
 
 #submit:hover {
   background: #AE3C58;
