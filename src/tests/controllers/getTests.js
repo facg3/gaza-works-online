@@ -13,5 +13,3 @@ test('Test Endpoint: /', (t) => {
       t.end();
     });
 });
-
-test.onFinish(() => process.exit(0));
