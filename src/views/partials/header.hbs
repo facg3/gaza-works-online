@@ -1,8 +1,49 @@
 <div class="navbar">
   <ul class="nav">
-    <li class="nav-item"><a href="#"><i class="icon-fixed-width icon-home"></i>Home</a></li>
-    <li class="nav-item"><a href="#"><i class="icon-fixed-width icon-coffee"></i>Categories</a></li>
-    <li class="nav-item"><a href="#"><i class="icon-fixed-width icon-user"></i>Sign Up</a></li>
-    <li class="nav-item"><a href="#"><i class="icon-fixed-width icon-envelope"></i>Login</a></li>
+    <div class="drop-menu" onclick="toggleDropMenu()">
+      <li class="nav-elm search-bar">&#9776;</li>
+    </div>
+    <div class="keys">
+      <li class="nav-elm"><a href="#">Home</a></li>
+      <li class="nav-elm"><a href="#">Categories</a></li>
+      <li class="nav-elm"><a href="#">Sign Up</a></li>
+      <li class="nav-elm"><a class="login-nav" onclick="showLogin()" name="login-button" value="Login">Login</a></li>
+      <!-- login form -->
+      <div id="log1" class="login-modal">
+        <form class="login-form animate" method="post">
+          <div class="logo-container">
+            <span onclick="hideLogin()" class="close" title="Close Modal">×</span>
+            <h1>GWO</h1>
+          </div>
+          <div class="login-data">
+            <label><b>Username</b></label>
+            <input id="username" type="text" placeholder="Enter Username" name="uname" required="">
+
+            <label><b>Password</b></label>
+            <input id="password" type="password" placeholder="Enter Password" name="psw" required="">
+
+            <button id="logmein" class="submit-button" type="submit">Login</button>
+            <button type="button" onclick="hideLogin()" class="cancelbtn">Cancel</button>
+            <label>
+            <a style="padding:10px 20px;" href="#">Forgot password?</a>
+      </label>
+          </div>
+        </form>
+      </div>
+      <script type="text/javascript" src="js/login.js"></script>
+      <div class="invalid-login">
+        <h1>Incorrect Login Attempt</h1>
+        <button type="button" onclick="hideIncorrectLogin()" class="incorrect-login-button">Ok</button>
+      </div>
+      <!-- login form end -->
+    </div>
+    <div class="logo">
+      <li class="nav-elm logo"><a href="#">GWO</a></li>
+    </div>
+    <div class="search">
+      <li style="float:left" class="nav-elm search-bar" onclick="toggleSearchBox()">&#8981;</li>
+      <input class="search-box" type="text" name="search-box" value="" placeholder="Search...">
+    </div>
   </ul>
+  <script type="text/javascript" src="js/header.js"></script>
 </div>
