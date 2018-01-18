@@ -13,7 +13,7 @@ test('Test Endpoint: /', (t) => {
       t.end();
     });
 });
-<<<<<<< HEAD
+
 test('Test Endpoint: /singleCategory', (t) => {
   supertest(app)
     .get('/singleCategory')
@@ -25,7 +25,6 @@ test('Test Endpoint: /singleCategory', (t) => {
       t.end();
     });
 });
-=======
->>>>>>> 54ec4bb9fe06c5f74349bf5cfe94110fea07ad32
+
 
 test.onFinish(() => process.exit(0));
