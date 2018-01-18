@@ -15,27 +15,25 @@ body {
 }
 
 .landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-repeat: no-repeat;
   height: calc(100vh - 50px);
   background-image: url(../img/agileteam.jpg);
   background-size: cover;
   background-position: center top;
-}
-
-/*First Screen CSS*/
-.brand-block {
-  height: 100%;
   text-align: center;
 }
 
-.brand-block h1 {
-  padding-top: 15%;
+/*First Screen CSS*/
+.landing h1 {
   font-family: 'Vollkorn', serif;
   font-size: 44px;
   color: #008099
 }
 
-.brand-block p {
+.landing p {
   font-family: 'Muli', sans-serif;
   padding: 35px;
   font-size: 1.5em;
@@ -67,12 +65,14 @@ input:focus {
 
 /*How It Works Block*/
 .hiw-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100vh;
   text-align: center;
 }
 
 .hiw-block h2 {
-  padding-top: 10%;
   font-family: 'Vollkorn', serif;
   font-size: 38px;
   color: #1e7f86;
@@ -81,14 +81,14 @@ input:focus {
 .hiw-block .hiw-step {
   width: 175px;
   height: 175px;
-  margin-top: 50px;
+  margin-bottom: 15vh;
 }
 
 .hiw-block .hiw-process-block {
   display: flex;
-  align-content: space-between;
+  justify-content: space-between;
   flex-wrap: wrap;
-  align-items: baseline;
+  width: 100%;
 }
 
 .hiw-block .hiw-process-block .step-1 {
@@ -117,4 +117,9 @@ input:focus {
   font-family: 'Lato', sans-serif;
   font-size: 24px;
   color: darkslategray
+}
+
+/*Media Queries*/
+
+@media Screen and (max-height: 768px) {
 }
