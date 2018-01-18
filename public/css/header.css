@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
-
 .navbar{
 	list-style-type: none;
 	height: 50px;
@@ -18,8 +17,6 @@
 	background-size: 100% 110%;
 	transition: all 0.3s;
 }
-
-
 
 nav-item:hover {
 	background-position: 0 0;
@@ -58,7 +55,6 @@ a {
 a:hover {
 	color: lightblue
 }
-
 
 @media only screen and (max-width: 400px) {
 	a {
