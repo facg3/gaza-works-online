@@ -1,7 +1,6 @@
 const express = require('express');
 
 const homePage = require('./homePage');
-
 const singleCategory = require('./singleCategory');
 
 const router = express.Router();
