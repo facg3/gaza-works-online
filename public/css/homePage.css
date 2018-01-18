@@ -121,5 +121,8 @@ input:focus {
 
 /*Media Queries*/
 
-@media Screen and (max-height: 768px) {
+@media Screen and (max-width: 385px) {
+  .hiw-block{
+    height: none
+  }
 }
