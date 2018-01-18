@@ -1,51 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#log1 {
+	height: 100px;
+	width: 100px;
+	opacity: 0;
+	visibility: hidden;
+	margin: 15% 0 0 20%;
+	background-color: skyblue;
+	position: fixed;
+	z-index: 1;
+	transition: all 1s;
+}
 
 .navbar{
-	list-style-type: none;
 	height: 50px;
+	transition: height 1s;
+	width: 100%;
 	background: #007c9f;
-	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
 }
 
-.nav-item {
+.search-box {
+	height: 0px;
+	width: 0px;
+	visibility: hidden;
+}
+
+.login-nav {
+	cursor: pointer;
+}
+
+.search-box.toggle-sb {
+	heigh: 15px;
+	width: 70px;
+	visibility: visible;
+	transition: all 1s;
+}
+
+.nav-elm {
 	display: block;
-	float: left;
+	float: right;
 	position: relative;
-	background-position: 0 -5px;
-	background-size: 100% 110%;
-	transition: all 0.3s;
 }
 
-
-
-nav-item:hover {
-	background-position: 0 0;
+.logo, .search {
+	float: left;
 }
 
-nav-item:before {
-	content: '';
-	opacity: 0;
-	display: block;
-	background-color: #5c79bc;
-	width: 5px;
-	height: 8px;
-	position: absolute;
-	left: 50%;
-	top: -20%;
-	margin-left: -5px;
-	@include transform(rotate(45deg));
-	transition: all 0.3s;
+.search-bar {
+	font-size: 45px;
+	color: white;
 }
 
-nav-item:hover:before {
-	top: 0;
-	opacity: 1;
+.search-bar:hover {
+	cursor: pointer;
 }
 
-a {
+.drop-menu {
+	display: none;
+}
+
+.navbar a {
 	display: block;
 	padding: 15px 15px;
 	text-decoration: none;
@@ -55,13 +74,72 @@ a {
 	font-weight: 500 bolder;
 	font-family: 'Titillium Web', sans-serif;
 }
-a:hover {
+
+.navbar a:hover {
 	color: lightblue
 }
 
+.invalid-login {
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	font-size: 16px;
+	position: fixed;
+	width: 45%;
+	height: 100px;
+	z-index: 1;
+	top: 50%;
+	background-color: rgb(0, 128, 153);
+}
 
-@media only screen and (max-width: 400px) {
-	a {
-		font-size: 16px;
+.invalid-login button {
+	font-size: 20px;
+}
+
+.invalid-login:not(.active) {
+	visibility: hidden;
+	right: -1000px;
+	transition: all 1s;
+}
+
+.invalid-login.active {
+	visibility: visible;
+	right: 30%;
+	transition: all 1s;
+}
+
+@media only screen and (max-width: 620px) {
+	.navbar a {
+		display: none;
+	}
+
+	.drop-menu {
+		display: block;
+		visibility: visible;
+		float: left;
+	}
+
+	.search {
+		float: right;
+	}
+
+	.navbar.toggle-dm {
+		height: 200px;
+		transition: height 1s;
+	}
+
+	 .navbar.toggle-dm .logo, .navbar.toggle-dm .search {
+		display: none;
+	}
+
+	.navbar.toggle-dm .keys {
+		display: flex;
+		flex-direction: column;
+		opacity: 1;
+		transition: opacity 0.9s;
+	}
+	.navbar.toggle-dm a {
+		visibility: visible;
+		display: block;
+		width: 100%;
 	}
 }
