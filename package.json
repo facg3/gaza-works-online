@@ -29,7 +29,6 @@
     "tape": "^4.8.0"
   },
   "dependencies": {
-    "async": "^2.6.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "env2": "^2.2.0",
