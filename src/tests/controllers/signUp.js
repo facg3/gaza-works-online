@@ -62,7 +62,7 @@ const postBadSignUp = () => {
       .end((err, res) => {
         if (err) return err;
         t.equal(res.res.statusCode, 400, 'POST For (\'/signup\') Should Return with status: 400');
-        t.equal(res.res.statusMessage, 'Bad Request');
+        t.equal(res.res.statusMessage, 'Bad Request', 'POST For (\'/signup\') Should Return with statuesMessage: Bad Request)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
         t.end();
         return null;

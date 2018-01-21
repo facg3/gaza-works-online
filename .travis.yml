@@ -6,4 +6,10 @@ notifications:
   email: false
 
 script:
-- node ./src/tests/controllers/getTests.js
+- node ./src/tests/tests/tests.js
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'CREATE DATABASE gwotest;' -U postgres
