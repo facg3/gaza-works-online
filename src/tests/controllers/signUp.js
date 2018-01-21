@@ -33,7 +33,7 @@ const postOKSignUp = () => {
       .expect(200)
       .end((err, res) => {
         if (err) return err;
-        t.plan(4);
+        t.plan(3);
         t.equal(res.statusCode, 200, 'POST For (\'/signup\') Should Return with status: 200');
         t.equal(res.res.statusMessage, 'OK', 'POST For (\'/signup\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
