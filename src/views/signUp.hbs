@@ -4,12 +4,12 @@
   </header>
     <div class="container">
       <div class="start-signup">
-        <form>
+        <form id="signup-form">
           <div class="text-input-container">
-            <input type="text" id="usr" placeholder="Username"/>
-            <input type="text" id="email" placeholder="Email"/>
-            <input type="password" id="pwd"placeholder="Password"/>
-            <input type="password" id="pwd-confirmation" placeholder="Confirm Password"/>
+            <input type="text" id="usr" placeholder="Username" minlength="5" required/>
+            <input type="email" id="email" placeholder="Email"/>
+            <input type="password" id="pwd" placeholder="Password" minlength="8" required/>
+            <input type="password" id="pwd-confirmation" placeholder="Confirm Password" minlength="8" required/>
           </div>
           <button id="submit-btn"/>Signup</button>
         </form>

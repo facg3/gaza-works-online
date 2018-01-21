@@ -1,11 +1,21 @@
-// Developer Notes:::
-// Alerts and all the console.log functions will be replaced with a model later.
-
 const select = element => document.querySelector(element);
+const errSpan = (msg) => {
+  if (!select('.error-span')) {
+    const span = document.createElement('span');
+    span.textContent = msg;
+    span.className = 'error-span';
+    select('#signup-form').appendChild(span);
+  } else {
+    select('.error-span').textContent = msg;
+  }
+};
 
-const validateUsr = usr => usr.match(/^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/) && usr.length >= 5;
+const usrRegex = new RegExp('^[a-zA-Z0-9_-]{5,15}$');
+const emailRegex = new RegExp('^([A-Za-z_0-9?]\.?){3,32}@([A-Za-z0-9]{3,32})\.([A-Za-z0-9s]){2,5}');
+
+const validateUsr = usr => usrRegex.test(usr) && usr.length >= 5;
 const validatePwd = (pwd, pwdConfirmation) => pwd === pwdConfirmation && pwd.length >= 8;
-const validateEmail = email => email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+const validateEmail = email => emailRegex.test(email);
 
 const signUp = () => {
   const signUpData = {
@@ -14,22 +24,21 @@ const signUp = () => {
     pwd: select('#pwd').value,
     pwdConfirmation: select('#pwd-confirmation').value,
   };
-  const isValidUsr = validateUsr(signUpData.username);
-  const isValidPwd = validatePwd(signUpData.pwd, signUpData.pwdConfirmation);
-  const isValidEmail = validateEmail(signUpData.email);
-  if (!isValidUsr) {
-    return alert('Username must be at least 5 characters, contains only alphanumericals.');
-  } else if (!isValidEmail) {
-    return alert('Email must be real!');
-  } else if (!isValidPwd) {
-    return alert('Passwords must match.');
-  }
+  const {
+    username, email, pwd, pwdConfirmation,
+  } = signUpData;
 
-  const usrData = {
-    usr: signUpData.username,
-    email: signUpData.email,
-    pwd: signUpData.pwd,
-  };
+  const isValidUsr = validateUsr(username);
+  const isValidPwd = validatePwd(pwd, pwdConfirmation);
+  const isValidEmail = validateEmail(email);
+
+  if (!isValidUsr) {
+    return errSpan('Username must be at least 5 characters, contains only alphanumericals.');
+  } else if (!isValidEmail) {
+    return errSpan('Please Enter A Correct Email Address!');
+  } else if (!isValidPwd) {
+    return errSpan('Passwords must match.');
+  }
 
   const headers = {
     headers: {
@@ -37,13 +46,13 @@ const signUp = () => {
       'Content-Type': 'application/json',
     },
     method: 'POST',
-    body: JSON.stringify(usrData),
+    body: JSON.stringify(signUpData),
   };
 
   fetch('/signup', headers)
     .then(res => res.json())
-    .then(res => console.log(res))
-    .then(err => console.log(err));
+    .then(res => errSpan(res.msg))
+    .catch(err => errSpan(err.msg));
   return null;
 };
 
