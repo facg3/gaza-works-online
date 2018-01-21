@@ -14,7 +14,7 @@ function showLogin() {
   form.style.visibility = 'visible';
 }
 
-function showIncorrectLogin() {
+function showIncorrectLogin()  {
   document.getElementsByClassName('invalid-login')[0].classList.add('active');
 }
 
@@ -26,22 +26,31 @@ document.getElementById('logmein').addEventListener('click', (e) => {
   e.preventDefault();
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
-  if (username.length < 6 || password.length < 9) {
-    return showIncorrectLogin();
+  const usernameRegex = /^\w{5,}/;
+  const passwordRegex = /^[a-zA-Z0-9]{8,}$/;
+  if (username && password) {
+    if (passwordRegex.test(password) && usernameRegex.test(username)) {
+      const body = {
+        username,
+        password
+      };
+      const headers = {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(body),
+      };
+      fetch('/login', headers)
+        .then(res => res.json())
+        .catch((err) => {
+          console.log(err);
+          showIncorrectLogin();
+          console.log('aaaaaaaaaaaaaaaaaa');
+        });
+      return;
+    }
   }
-  const body = {
-    username,
-    password
-  };
-  const headers = {
-    headers: {
-      Accept: 'application/json, text/plain, */*',
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-    body: JSON.stringify(body),
-  };
-  fetch('/login', headers)
-    .then(res => res.json())
-    .catch(err => err);
+  showIncorrectLogin();
 });
