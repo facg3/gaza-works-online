@@ -4,12 +4,13 @@ const url = require('url');
 const env = require('env2');
 
 env('./config.env');
+const dbUrl = process.env.ENV !== 'testing' ? DATABASE_URL : DATABASE_URL_TEST
 
-if (!process.env.DATABASE_URL) {
-  return new Error('Environment variable DATABASE_URL must be set');
+if (!process.env.dbUrl) {
+  return new Error('Environment variable dbUrl must be set');
 }
 
-const params = url.parse(process.env.DATABASE_URL);
+const params = url.parse(process.env.dbUrl);
 
 const [username, password] = params.auth.split(':');
 
