@@ -7,8 +7,7 @@
     "start": "node src/server.js",
     "watch": "nodemon src/server.js",
     "test": "NODE_ENV=testing node ./src/tests/tests.js | tap-spec",
-    "db-build": "node src/database/dbBuild.js",
-    "pretest": "NODE_ENV=testing npm run db-build"
+    "db-build": "node src/database/dbBuild.js"
   },
   "repository": {
     "type": "git",

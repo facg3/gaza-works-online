@@ -58,11 +58,7 @@ exports.post = (req, res) => {
             msg: 'User Successfully Inserted',
           });
         });
-        return null;
       });
-      return null;
     });
-    return null;
   });
-  return null;
 };

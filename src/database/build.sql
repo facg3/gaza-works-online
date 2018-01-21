@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE users IF EXISTS CASCADE;
+DROP TABLE users IF EXISTS;
 
 CREATE TABLE users (
   id serial primary key,

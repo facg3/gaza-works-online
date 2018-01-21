@@ -11,7 +11,6 @@ const selectUserByUsername = (username, cb) => {
     }
     return cb(null, selectRes);
   });
-  return null;
 };
 
 const selectUserByEmail = (email, cb) => {
@@ -25,7 +24,6 @@ const selectUserByEmail = (email, cb) => {
     }
     return cb(null, selectRes);
   });
-  return null;
 };
 
 module.exports = {

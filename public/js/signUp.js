@@ -53,7 +53,6 @@ const signUp = () => {
     .then(res => res.json())
     .then(res => errSpan(res.msg))
     .catch(err => errSpan(err.msg));
-  return null;
 };
 
 select('#submit-btn').addEventListener('click', (event) => {
