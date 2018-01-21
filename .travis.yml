@@ -6,7 +6,7 @@ notifications:
   email: false
 
 script:
-- node ./src/tests/tests/tests.js
+- node ./src/tests/tests.js
 
 services:
   - postgresql
