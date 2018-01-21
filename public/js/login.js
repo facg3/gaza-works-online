@@ -45,9 +45,7 @@ document.getElementById('logmein').addEventListener('click', (e) => {
       fetch('/login', headers)
         .then(res => res.json())
         .catch((err) => {
-          console.log(err);
           showIncorrectLogin();
-          console.log('aaaaaaaaaaaaaaaaaa');
         });
       return;
     }
