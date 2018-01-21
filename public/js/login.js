@@ -14,7 +14,7 @@ function showLogin() {
   form.style.visibility = 'visible';
 }
 
-function showIncorrectLogin()  {
+function showIncorrectLogin() {
   document.getElementsByClassName('invalid-login')[0].classList.add('active');
 }
 

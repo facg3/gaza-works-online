@@ -13,8 +13,7 @@ exports.compare = (loginData, cb) => {
       loginData.password, dbResult.rows[0].password,
       (bcryptErr, bResult) => {
         if (bcryptErr) return cb(bcryptErr);
-        else if (!bResult) return cb(null, 'wrongLogin');
-        return cb(null, 'correctLogin');
+        return cb(null, bResult);
       }
     );
   });

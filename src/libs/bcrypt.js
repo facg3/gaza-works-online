@@ -17,11 +17,11 @@ const hashPassword = (pwd, cb) => {
 };
 
 const comparePasswords = (password, hashedPassword, cb) => {
-  bcryptjs.compare(password, hashedPassword, (errorComparing, passOrNot) => {
+  bcryptjs.compare(password, hashedPassword, (errorComparing, result) => {
     if (errorComparing) {
       return cb(errorComparing);
     }
-    return cb(null, passOrNot);
+    return cb(null, result);
   });
   return null;
 };
