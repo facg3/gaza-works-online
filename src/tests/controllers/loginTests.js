@@ -20,10 +20,10 @@ const postLoginCorrect = () => {
       .expect(200)
       .end((err, res) => {
         if (err) {
-          console.log(err);
+          t.fail(err);
           t.end();
         }
-        console.log(err);
+        t.fail(err);
         t.equal(res.statusCode, 200, 'posting correct data for (\'/login\') should return with status: 200');
         t.end();
       });
@@ -40,7 +40,7 @@ const postLoginFalseUsername = () => {
       .expect(400)
       .end((err, res) => {
         if (err) {
-          console.log(err);
+          t.fail(err);
           t.end();
         }
         t.equal(res.statusCode, 400, 'posting false data for (\'/\') should return with status: 400');
@@ -60,7 +60,7 @@ const postLoginFalsePassword = () => {
       .expect(400)
       .end((err, res) => {
         if (err) {
-          console.log(err);
+          t.fail(err);
           t.end();
         }
         t.equal(res.statusCode, 400, 'posting false data for (\'/\') should return with status: 400');
@@ -80,7 +80,7 @@ const postLoginMissingUsername = () => {
       .expect(400)
       .end((err, res) => {
         if (err) {
-          console.log(err);
+          t.fail(err);
           t.end();
         }
         t.equal(res.statusCode, 400, 'posting missing data for (\'/\') should return with status: 400');
@@ -100,7 +100,7 @@ const postLoginMissingPassword = () => {
       .expect(400)
       .end((err, res) => {
         if (err) {
-          console.log(err);
+          t.fail(err);
           t.end();
         }
         t.equal(res.statusCode, 400, 'posting missing data for (\'/\') should return with status: 400');

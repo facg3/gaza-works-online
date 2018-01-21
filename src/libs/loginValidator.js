@@ -6,8 +6,7 @@ const schema = {
 };
 
 exports.validate = (req, res, next) => {
-  const { username } = req.body;
-  const { password } = req.body;
+  const { username, password } = req.body;
   const valid = joi.validate({ username, password }, schema);
   if (!valid.error) {
     return next();
