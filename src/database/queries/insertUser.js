@@ -11,6 +11,7 @@ const insertUser = (userObj, cb) => {
     }
     return cb(null, insertRes);
   });
+  return null;
 };
 
 module.exports = insertUser;

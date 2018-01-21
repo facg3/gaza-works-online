@@ -12,9 +12,12 @@ const getHomePage = () => {
         t.equal(res.statusCode, 200, 'Get For (\'/\') Should Return with status: 200');
         t.equal(res.res.statusMessage, 'OK', 'Get For (\'/\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'text/html', 'Get For (\'/\') Should Return with content-type of: text/html');
-        return t.end();
+        t.end();
+        return null;
       });
+    return null;
   });
+  return null;
 };
 
 module.exports = { getHomePage };

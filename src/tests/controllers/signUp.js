@@ -15,7 +15,9 @@ const getSignUp = () => {
         t.end();
         return null;
       });
+    return null;
   });
+  return null;
 };
 
 const postOKSignUp = () => {
@@ -33,13 +35,15 @@ const postOKSignUp = () => {
       .expect(200)
       .end((err, res) => {
         if (err) return err;
-        t.plan(3);
         t.equal(res.statusCode, 200, 'POST For (\'/signup\') Should Return with status: 200');
         t.equal(res.res.statusMessage, 'OK', 'POST For (\'/signup\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
+        t.end();
         return null;
       });
+    return null;
   });
+  return null;
 };
 
 const postBadSignUp = () => {
@@ -63,7 +67,9 @@ const postBadSignUp = () => {
         t.end();
         return null;
       });
+    return null;
   });
+  return null;
 };
 
 module.exports = {

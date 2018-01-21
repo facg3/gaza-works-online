@@ -21,7 +21,6 @@ const validate = (req, res, next) => {
       err: isValid.error,
     });
   }
-
   return next();
 };
 
