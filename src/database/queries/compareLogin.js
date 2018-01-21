@@ -1,4 +1,4 @@
-const connection = require('../dbConnetction');
+const connection = require('../dbConnection');
 const compare = require('../../libs/bcrypt.js');
 
 exports.compare = (loginData, cb) => {
