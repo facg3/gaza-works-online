@@ -13,11 +13,8 @@ const getSignUp = () => {
         t.equal(res.res.statusMessage, 'OK', 'Get For (\'/signup\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'text/html', 'Get For (\'/signup\') Should Return with content-type of: text/html');
         t.end();
-        return null;
       });
-    return null;
   });
-  return null;
 };
 
 const postSignUp200 = () => {
@@ -39,11 +36,8 @@ const postSignUp200 = () => {
         t.equal(res.res.statusMessage, 'OK', 'POST For (\'/signup\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
         t.end();
-        return null;
       });
-    return null;
   });
-  return null;
 };
 
 const postBadSignUp = () => {
@@ -65,11 +59,8 @@ const postBadSignUp = () => {
         t.equal(res.res.statusMessage, 'Bad Request', 'POST For (\'/signup\') Should Return with statuesMessage: Bad Request)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
         t.end();
-        return null;
       });
-    return null;
   });
-  return null;
 };
 
 module.exports = {

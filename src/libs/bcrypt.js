@@ -11,9 +11,7 @@ const hashPassword = (pwd, cb) => {
       }
       return cb(null, hash);
     });
-    return null;
   });
-  return null;
 };
 
 const comparePasswords = (password, hashedPassword, cb) => {
@@ -23,7 +21,6 @@ const comparePasswords = (password, hashedPassword, cb) => {
     }
     return cb(null, passOrNot);
   });
-  return null;
 };
 
 module.exports = { comparePasswords, hashPassword };

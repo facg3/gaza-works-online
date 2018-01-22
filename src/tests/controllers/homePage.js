@@ -13,11 +13,8 @@ const getHomePage = () => {
         t.equal(res.res.statusMessage, 'OK', 'Get For (\'/\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'text/html', 'Get For (\'/\') Should Return with content-type of: text/html');
         t.end();
-        return null;
       });
-    return null;
   });
-  return null;
 };
 
 module.exports = { getHomePage };
