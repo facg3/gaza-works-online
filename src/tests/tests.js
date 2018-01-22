@@ -1,7 +1,13 @@
-const loginTest = require('./controllers/loginTests');
+const {
+  postLoginCorrect,
+  postLoginFalsePassword,
+  postLoginFalseUsername,
+  postLoginMissingUsername,
+  postLoginMissingPassword
+} = require('./controllers/loginTests');
 
-loginTest.postLoginCorrect();
-loginTest.postLoginFalseUsername();
-loginTest.postLoginFalsePassword();
-loginTest.postLoginMissingUsername();
-loginTest.postLoginMissingPassword();
+postLoginCorrect();
+postLoginFalseUsername();
+postLoginFalsePassword();
+postLoginMissingUsername();
+postLoginMissingPassword();
