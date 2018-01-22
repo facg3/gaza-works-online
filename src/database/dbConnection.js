@@ -1,16 +1,15 @@
 const { Pool } = require('pg');
 const url = require('url');
-const env = require('env2');
+require('env2')('./config.env');
 
-env('./config.env');
+const dbUrl = process.env.NODE_ENV !== 'testing' ? process.env.DATABASE_URL : process.env.DATABASE_URL_TEST_REMOTE;
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('Environment variable DATABASE_URL must be set');
+if (!dbUrl) {
+  throw new Error('Environment variable dbUrl must be set');
 }
 
-const params = url.parse(process.env.DATABASE_URL);
+const params = url.parse(dbUrl);
 const [username, password] = params.auth.split(':');
-
 const options = {
   host: params.hostname,
   port: params.port,
