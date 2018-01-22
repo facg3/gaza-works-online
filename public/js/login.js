@@ -31,7 +31,7 @@ document.getElementById('logmein').addEventListener('click', (e) => {
   }
   const body = {
     username,
-    password
+    password,
   };
   const headers = {
     headers: {
