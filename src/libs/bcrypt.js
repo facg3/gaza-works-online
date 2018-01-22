@@ -5,25 +5,12 @@ const hashPassword = (pwd, cb) => {
     if (errSalt) {
       return cb(errSalt);
     }
-    bcryptjs.hash(pwd, salt, (errHashing, hash) => {
-      if (errHashing) {
-        return cb(errHashing);
-      }
-      return cb(null, hash);
-    });
-    return null;
+    bcryptjs.hash(pwd, salt, cb);
   });
-  return null;
 };
 
 const comparePasswords = (password, hashedPassword, cb) => {
-  bcryptjs.compare(password, hashedPassword, (errorComparing, result) => {
-    if (errorComparing) {
-      return cb(errorComparing);
-    }
-    return cb(null, result);
-  });
-  return null;
+  bcryptjs.compare(password, hashedPassword, cb);
 };
 
 module.exports = { comparePasswords, hashPassword };
