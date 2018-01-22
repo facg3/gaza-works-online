@@ -4,9 +4,8 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const controllers = require('./controllers/mainController');
-const errors = require('./controllers/errors');
+const { Error500ServerError } = require('./controllers/errors');
 
 const app = express();
 
@@ -25,8 +24,7 @@ app.engine('hbs', hbs({
   partialsDir: path.join(__dirname, 'views', 'partials'),
   defaultLayout: 'main',
 }));
-
 app.use(controllers);
-app.use(errors.e500);
+app.use(Error500ServerError);
 
 module.exports = app;
