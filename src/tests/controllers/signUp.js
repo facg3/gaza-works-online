@@ -20,7 +20,7 @@ const getSignUp = () => {
   return null;
 };
 
-const postOKSignUp = () => {
+const postSignUp200 = () => {
   test('Test Endpoint: /signup With POST Method, 200.OK Test.', (t) => {
     supertest(app)
       .post('/signup')
@@ -74,6 +74,6 @@ const postBadSignUp = () => {
 
 module.exports = {
   getSignUp,
-  postOKSignUp,
+  postSignUp200,
   postBadSignUp,
 };

@@ -4,5 +4,5 @@ const signUp = require('./controllers/signUp');
 
 homePage.getHomePage();
 signUp.getSignUp();
-signUp.postOKSignUp();
+signUp.postSignUp200();
 signUp.postBadSignUp();
