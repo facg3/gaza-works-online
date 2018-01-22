@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const controllers = require('./controllers/mainController');
+const errors = require('./controllers/errors');
 
 const app = express();
 
@@ -26,5 +27,6 @@ app.engine('hbs', hbs({
 }));
 
 app.use(controllers);
+app.use(errors.e500);
 
 module.exports = app;
