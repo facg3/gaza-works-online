@@ -1,28 +1,19 @@
 const postProjectQuery = require('../database/queries/queries');
 
-const getPostProject = (req, res) => {
+exports.get = (req, res) => {
   res.render('postProject', {
     title: 'Post A Project',
     style: 'postProject',
   });
 };
 
-const postProject = (req, res) => {
+// ToDo , Still
+exports.post = (req, res) => {
   console.log(req.body);
   postProjectQuery.postProject(req.body, (err, response) => {
     if (err) {
-      res.render('register', {
-        error: true,
-        mssg: 'Sth went wrong',
-        layout: false,
-      });
-    } else {
-      res.redirect('/categories');
+      return res.status(500);
     }
+    return res.send({});
   });
-  res.send({});
-};
-module.exports = {
-  postProject,
-  getPostProject,
 };

@@ -1,8 +1,9 @@
 const connect = require('../dbConnection');
 
-function selectCatProjects(cb) {
+function selectCatProjects(reqCategory, cb) {
   const sqlQueries = {
-    text: 'SELECT category.category, projects.title, projects.skills, projects.budget, projects.lifetime, projects.description FROM category INNER JOIN projects on projects.category_id= category.id',
+    text: 'select * from projects where category_id = (select id from category where LOWER(category) = LOWER($1))',
+    values: [reqCategory],
   };
   connect.query(sqlQueries, (errorConnectingToDB, res) => {
     if (errorConnectingToDB) return cb('errorConnectingToDB');

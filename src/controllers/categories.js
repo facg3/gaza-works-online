@@ -2,6 +2,16 @@ const { selectCategories } = require('../database/queries/queries');
 
 exports.get = (req, res) => {
   selectCategories((err, result) => {
-    res.render('categories', { title: 'Categories', style: 'categories', category: result });
+    if (err) {
+      return res.status(500);
+    }
+    // adding property catLink for each category object
+    result.forEach((cat) => {
+      cat.catLink = `/categories/${cat.category.toLowerCase().replace(/ /g, '-')}`;
+    });
+
+    return res.render('categories', {
+      title: 'Categories', style: 'categories', category: result,
+    });
   });
 };

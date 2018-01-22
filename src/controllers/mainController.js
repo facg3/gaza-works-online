@@ -10,9 +10,9 @@ const router = express.Router();
 
 router.get('/', homePage.get);
 router.get('/categories', categories.get);
-router.get('/singleCategory', singleCategory.get);
-router.get('/postProject', postProject.getPostProject);
-router.post('/postProject', postProject.postProject);
+router.get('/categories/:singleCategory', singleCategory.get);
+router.get('/postProject', postProject.get);
 router.get('/viewProject', viewProject.get);
+router.post('/postProject', postProject.post);
 
 module.exports = router;

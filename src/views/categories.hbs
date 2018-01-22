@@ -1,3 +1,7 @@
-{{#each category}}
-{{> categories}}
-{{/each}}
+<section>
+  {{#each category}}
+  <div class="cats">
+    <h2><a href={{catLink}}>{{category}}</a></h2>
+  </div>
+  {{/each}}
+</section>
