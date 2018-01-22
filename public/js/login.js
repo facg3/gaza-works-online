@@ -32,13 +32,14 @@ document.getElementById('logmein').addEventListener('click', (e) => {
     if (passwordRegex.test(password) && usernameRegex.test(username)) {
       const body = {
         username,
-        password
+        password,
       };
       const headers = {
         headers: {
           Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         method: 'POST',
         body: JSON.stringify(body),
       };
