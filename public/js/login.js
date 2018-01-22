@@ -51,5 +51,19 @@ document.getElementById('logmein').addEventListener('click', (e) => {
       return;
     }
   }
-  showIncorrectLogin();
+  const body = {
+    username,
+    password,
+  };
+  const headers = {
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify(body),
+  };
+  fetch('/login', headers)
+    .then(res => res.json())
+    .catch(err => err);
 });

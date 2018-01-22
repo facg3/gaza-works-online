@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Vollkorn:700italic,400');
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+* {
+  padding: 0;
+  margin: 0 auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    background-image: url(../img/bg-pattern.gif);
+    background-repeat: round;
+    background-blend-mode: overlay;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.section-start {
+  -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+  background-color: #007c9f;
+  max-height: 90%;
+  margin: 0 auto;
+  max-width: 640px;
+  padding-bottom: 25px;
+  position: relative;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 35px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top: 10px solid white;
+}
+
+.section-header {
+  padding: 80px;
+}
+
+.section-header h1 {
+  font-family: 'Vollkorn', serif;
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.start-signup {
+  width: 100%
+}
+
+.start-signup form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%
+}
+
+.text-input-container input {
+  height: 45px;
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  width: 75%;
+  padding-left: 20px;
+  outline: none
+}
+
+.start-signup button {
+  background-color: #e9f3fd;
+  border: 0;
+  border-radius: 15px;
+  color: #2b86ec;
+  display: block;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 20px 0;
+  outline: 0;
+  padding: 17px 0 15px;
+  width: 55%;
+}
+
+.error-span {
+  color: #ff8f8f;
+  font-size: 16px;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  width: 100%;
+}
