@@ -13,7 +13,7 @@ const postLoginCorrect = () => {
       .post('/login')
       .send({
         username,
-        password
+        password,
       })
       .set('Accept', 'application/json, text/plain, */*')
       .set('Content-Type', 'application/json')
@@ -23,7 +23,6 @@ const postLoginCorrect = () => {
           t.fail(err);
           t.end();
         }
-        t.fail(err);
         t.equal(res.statusCode, 200, 'posting correct data for (\'/login\') should return with status: 200');
         t.end();
       });
@@ -117,5 +116,5 @@ module.exports = {
   postLoginFalseUsername,
   postLoginFalsePassword,
   postLoginMissingUsername,
-  postLoginMissingPassword
+  postLoginMissingPassword,
 };
