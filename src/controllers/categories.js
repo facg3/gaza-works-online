@@ -3,7 +3,7 @@ const { selectCategories } = require('../database/queries/queries');
 exports.get = (req, res) => {
   selectCategories((err, result) => {
     if (err) {
-      return res.status(500);
+      return next(err);
     }
     // adding property catLink for each category object
     result.forEach((cat) => {
