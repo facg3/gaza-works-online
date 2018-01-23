@@ -2,7 +2,7 @@ const joi = require('joi');
 
 const schema = {
   username: joi.string().alphanum().min(5).required(),
-  password: joi.string().regex(/^[a-zA-Z0-9]{8,}$/).required()
+  password: joi.string().regex(/^[a-zA-Z0-9!@#$%^&*(){}<>?"']{8,}$/).required()
 };
 
 const validate = (req, res, next) => {

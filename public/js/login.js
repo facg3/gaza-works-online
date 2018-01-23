@@ -37,7 +37,7 @@ const password = document.getElementById('password').value;
 document.getElementById('logmein').addEventListener('click', (e) => {
   e.preventDefault();
   const usernameRegex = /^\w{5,}/;
-  const passwordRegex = /^[a-zA-Z0-9]{8,}$/;
+  const passwordRegex = /^[a-zA-Z0-9!@#$%^&*(){}<>?"']{8,}$/;
 
   if (username && password) {
     if (passwordRegex.test(password) && usernameRegex.test(username)) {
