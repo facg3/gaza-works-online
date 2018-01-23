@@ -12,8 +12,16 @@
           <p class="job-details">{{description}}</p>
         </h4>
       </div>
-        <button type="button" class="sm-btn">Details</button>
+        <button type="button" value="{{title}} {{id}}" class="sm-btn" onclick="fetchProject(this)">Details</button>
     </div>
     {{/each}}
   </div>
 </section>
+<script type="text/javascript">
+// toDo
+  const fetchProject = (projectFetchBtn) => {
+    const projectLink = `${window.location.pathname}/${projectFetchBtn.value.replace(/ /g, '-').toLowerCase()}`;
+    console.log(projectLink);
+    window.location.pathname = projectLink;
+  };
+</script>
