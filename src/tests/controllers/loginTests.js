@@ -58,7 +58,6 @@ const postLoginFalsePassword = () => {
       .set('Content-Type', 'application/json')
       .expect(400)
       .end((err, res) => {
-        console.log('errrrrrrrrrrrrrrr', err);
         if (err) {
           t.fail(err);
           t.end();

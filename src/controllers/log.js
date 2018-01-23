@@ -28,8 +28,6 @@ exports.in = (req, res) => {
           `userName=${username}; max-age=${maxAge}`]
         );
         res.render('homePage', { title: 'Gaza Works Online - Home', style: 'homePage', logged: true });
-        // res.redirect(302, '/');
-        // return res.json({ msg:"here we are" })
       }
     );
   });
@@ -39,6 +37,5 @@ exports.out = (req, res) => {
   res.setHeader('Set-Cookie', ['logged_in=empty; max-age=0',
     'accessToken=empty; max-age=0',
     'userName=empty; max-age=0']);
-  // res.render('homePage', { title: 'Gaza Works Online - Home', style: 'homePage', logged: false });
   res.redirect(302, '/');
 }

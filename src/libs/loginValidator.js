@@ -9,8 +9,6 @@ const validate = (req, res, next) => {
   const { username, password } = req.body;
   const valid = joi.validate({ username, password }, schema);
   if (!valid.error) {
-    console.log(username, password);
-    console.log('im heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer');
     return next();
   }
   return res.status(400).send('youAreNotSupposedToBeHere');
