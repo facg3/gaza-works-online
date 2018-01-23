@@ -1,20 +1,12 @@
 const connection = require('../dbConnection');
-const compare = require('../../libs/bcrypt.js');
 
 exports.compare = (loginData, cb) => {
   const findUserQuery = {
     text: 'SELECT * FROM users WHERE (LOWER(username)=$1 OR LOWER(email)=$1);',
-    values: [loginData.username]
+    values: [loginData.username],
   };
   connection.query(findUserQuery, (dbErr, dbResult) => {
     if (dbErr) return cb(dbErr);
-    else if (dbResult.rowCount === 0) return cb(null, 'userNotFound');
-    compare.comparePasswords(
-      loginData.password, dbResult.rows[0].password,
-      (bcryptErr, bResult) => {
-        if (bcryptErr) return cb(bcryptErr);
-        return cb(null, bResult);
-      }
-    );
+    return cb(null, dbResult);
   });
 };

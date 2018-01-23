@@ -5,7 +5,7 @@ const schema = {
   password: joi.string().regex(/^[a-zA-Z0-9]{8,}$/).required()
 };
 
-exports.validate = (req, res, next) => {
+const validate = (req, res, next) => {
   const { username, password } = req.body;
   const valid = joi.validate({ username, password }, schema);
   if (!valid.error) {
@@ -13,3 +13,5 @@ exports.validate = (req, res, next) => {
   }
   return res.status(400).send('youAreNotSupposedToBeHere');
 };
+
+module.exports = validate;

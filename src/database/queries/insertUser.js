@@ -6,7 +6,6 @@ const insertUser = (userObj, cb) => {
     values: [userObj.usr, userObj.email.toLowerCase(), userObj.pwd],
   };
   connection.query(insertQuery, (insertErr, insertRes) => {
-    console.log(insertErr);
     if (insertErr) {
       return cb(insertErr);
     }
