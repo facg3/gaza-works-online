@@ -22,10 +22,10 @@ const hideIncorrectLogin = () => {
   document.getElementsByClassName('invalid-login')[0].classList.remove('active');
 }
 
+const username = document.getElementById('username').value;
+const password = document.getElementById('password').value;
 document.getElementById('logmein').addEventListener('click', (e) => {
   e.preventDefault();
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
   const usernameRegex = /^\w{5,}/;
   const passwordRegex = /^[a-zA-Z0-9]{8,}$/;
 
