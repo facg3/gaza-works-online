@@ -1,7 +1,12 @@
 <section>
-  {{#each category}}
-  <div class="cats">
-    <h2><a href={{catLink}}>{{category}}</a></h2>
-  </div>
-  {{/each}}
+  <section class="page-start">
+    <h3 class="page-title">Categories</h3>
+    <div class="cats-container">
+      {{#each category}}
+      <div class="cat-block">
+        <h2 class="cats-heads"><a href={{catLink}}>{{category}}</a></h2>
+      </div>
+      {{/each}}
+    </div>
+  </section>
 </section>
