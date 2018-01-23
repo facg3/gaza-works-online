@@ -19,17 +19,6 @@ CREATE TABLE users (
   rating INTEGER
 );
 
-CREATE TABLE proposals (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id) NOT NULL,
-  project_id INTEGER REFERENCES projects(id) NOT NULL,
-  skills VARCHAR,
-  pay INTEGER CHECK (pay > 0),
-  whyme VARCHAR(511),
-  state INTEGER CHECK (state < 3 AND state >= 0),
-  date DATE
-);
-
 CREATE TABLE projects (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) NOT NULL,
@@ -39,6 +28,17 @@ CREATE TABLE projects (
   category_id INTEGER REFERENCES categories(id),
   price INTEGER CHECK (price > 0),
   desciprtion VARCHAR
+);
+
+CREATE TABLE proposals (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) NOT NULL,
+  project_id INTEGER REFERENCES projects(id) NOT NULL,
+  skills VARCHAR,
+  pay INTEGER CHECK (pay > 0),
+  whyme VARCHAR(511),
+  state INTEGER CHECK (state < 3 AND state >= 0),
+  date DATE
 );
 
 CREATE TABLE categories (
@@ -59,6 +59,6 @@ CREATE TABLE comments (
   proposal_id INTEGER REFERENCES proposals(id),
   content VARCHAR(1023),
   date DATE
-)
+);
 
 COMMIT;
