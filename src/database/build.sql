@@ -27,7 +27,7 @@ CREATE TABLE proposals (
   pay INTEGER CHECK (pay > 0),
   whyme VARCHAR(511),
   state INTEGER CHECK (state < 3 AND state >= 0),
-  date DATA
+  date DATE
 );
 
 CREATE TABLE projects (
