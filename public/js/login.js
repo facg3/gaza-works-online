@@ -22,6 +22,16 @@ const hideIncorrectLogin = () => {
   document.getElementsByClassName('invalid-login')[0].classList.remove('active');
 }
 
+document.querySelector('body').addEventListener('click', (e) => {
+  if (e.target !== document.querySelector('.login-nav')) {
+    if (document.querySelector('#log1').style.visibility === 'visible') {
+      hideLogin();
+    }
+  }
+});
+
+
+
 const username = document.getElementById('username').value;
 const password = document.getElementById('password').value;
 document.getElementById('logmein').addEventListener('click', (e) => {
