@@ -23,7 +23,7 @@ const hideIncorrectLogin = () => {
 }
 
 document.querySelector('body').addEventListener('click', (e) => {
-  if (e.target !== document.querySelector('.login-nav')) {
+  if (e.target !== document.querySelector('.login-nav') && e.target !== document.querySelector('#log1')) {
     if (document.querySelector('#log1').style.visibility === 'visible') {
       hideLogin();
     }

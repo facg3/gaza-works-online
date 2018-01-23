@@ -24,9 +24,9 @@ CREATE TABLE proposals (
   user_id INTEGER REFERENCES users(id) NOT NULL,
   project_id INTEGER REFERENCES projects(id) NOT NULL,
   skills VARCHAR,
-  cost INTEGER UNSIGNED,
+  pay INTEGER CHECK (pay > 0),
   whyme VARCHAR(511),
-  state INTEGER UNSIGNED CHECK (state < 3),
+  state INTEGER CHECK (state < 3 AND state >= 0),
   date DATA
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE projects (
   skills VARCHAR,
   dateline DATE,
   category_id INTEGER REFERENCES categories(id),
-  const INTEGER UNSIGNED,
+  price INTEGER CHECK (price > 0),
   desciprtion VARCHAR
 );
 

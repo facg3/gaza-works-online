@@ -5,7 +5,7 @@ const test = require('tape');
 const username = 'someusername';
 const falseUsername = '#somefalseusername';
 const password = 'somepassword';
-const falsePassword = '#somefalsePassword';
+const falsePassword = '#fls';
 
 const postLoginCorrect = () => {
   test('Test posting to /login', (t) => {
@@ -58,6 +58,7 @@ const postLoginFalsePassword = () => {
       .set('Content-Type', 'application/json')
       .expect(400)
       .end((err, res) => {
+        console.log('errrrrrrrrrrrrrrr', err);
         if (err) {
           t.fail(err);
           t.end();
