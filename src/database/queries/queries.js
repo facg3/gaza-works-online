@@ -5,6 +5,7 @@ const {
   selectUserByUsername,
   selectUserByEmail,
 } = require('./selectUser');
+const { viewProject } = require('./viewProject');
 
 module.exports = {
   insertUser,
@@ -12,4 +13,5 @@ module.exports = {
   selectUserByEmail,
   selectCategories,
   selectCatProjects,
+  viewProject,
 };

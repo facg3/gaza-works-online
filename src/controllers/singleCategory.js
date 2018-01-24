@@ -1,14 +1,20 @@
 const { selectCatProjects } = require('../database/queries/queries');
 
-// toDo Still
+
 exports.get = (req, res, next) => {
-  const reqCategory = req.params.singleCategory.replace(/-/g, ' ');
+  const { singleCategory } = req.params;
+  const reqCategory = singleCategory.replace(/-/g, ' ');
   selectCatProjects(reqCategory, (err, result) => {
     if (err) {
       return next(err);
     }
+    const projects = result.map((project) => {
+      const newProject = project;
+      newProject.link = `${singleCategory}/${project.title}-${project.id}`.replace(/ /g, '-').toLowerCase();
+      return newProject;
+    });
     return res.render('singleCategory', {
-      project: result, reqCategory, style: 'singleCategory',
+      projects, reqCategory, style: 'singleCategory', title: reqCategory.toUpperCase(),
     });
   });
 };
