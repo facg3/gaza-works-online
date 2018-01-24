@@ -19,7 +19,6 @@ router.post('/signup', validators.signUpValidator, signUp.post);
 router.get('/categories', categories.get);
 router.get('/categories/:singleCategory', singleCategory.get);
 router.get('/categories/:singleCategory/:singleProject', viewProject.get);
-router.post('/login', login.process);
 router.use(Error404NotFound);
 
 module.exports = router;
