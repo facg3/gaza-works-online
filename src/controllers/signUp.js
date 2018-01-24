@@ -1,4 +1,8 @@
-const queries = require('../database/queries/queries');
+const {
+  selectUserByUsername,
+  selectUserByEmail,
+  insertUser,
+} = require('../database/queries/queries');
 const bcrypt = require('../libs/bcrypt');
 
 exports.get = (req, res) => {
@@ -11,23 +15,17 @@ exports.post = (req, res) => {
     pwd: req.body.pwd,
     email: req.body.email,
   };
-  queries.selectUserByUsername(usrObj.usr, (selectWithUsrErr, selectWithUsrRes) => {
+  selectUserByUsername(usrObj.usr, (selectWithUsrErr, selectWithUsrRes) => {
     if (selectWithUsrErr) {
-      return res.status(500).send({
-        msg: 'Internal Server Error: selectWithUsrErr',
-        err: selectWithUsrErr,
-      });
+      return new Error('Internal Server Error: selectWithUsrErr');
     } else if (selectWithUsrRes.rowCount !== 0) {
       return res.send({
         msg: 'Username Already Exists',
       });
     }
-    queries.selectUserByEmail(usrObj.email, (selectWithEmailErr, selectWithEmailRes) => {
+    selectUserByEmail(usrObj.email, (selectWithEmailErr, selectWithEmailRes) => {
       if (selectWithEmailErr) {
-        return res.status(500).send({
-          msg: 'Internal Server Error: selectWithEmailErr',
-          err: selectWithEmailErr,
-        });
+        return new Error('Internal Server Error: selectWithEmailErr');
       } else if (selectWithEmailRes.rowCount !== 0) {
         return res.send({
           msg: 'Email Address Already Exists',
@@ -35,20 +33,14 @@ exports.post = (req, res) => {
       }
       bcrypt.hashPassword(usrObj.pwd, (hashingErr, hashedPwd) => {
         if (hashingErr) {
-          return res.status(500).send({
-            msg: 'Internal Server Error: hashingErr',
-            err: hashingErr,
-          });
+          return new Error('Internal Server Error: hashingErr');
         }
         usrObj.pwd = hashedPwd;
-        queries.insertUser(usrObj, (insertErr, insertRes) => {
+        insertUser(usrObj, (insertErr, insertRes) => {
           if (insertErr) {
-            return res.status(500).send({
-              msg: 'Internal Server Error: InsertErr',
-              err: insertRes,
-            });
+            return new Error('Internal Server Error: InsertErr');
           } else if (insertRes.rowCount !== 1) {
-            return res.status(500).send({
+            return res.status(400).send({
               msg: 'Username Already Exists',
             });
           }
