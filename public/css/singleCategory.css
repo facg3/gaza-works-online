@@ -55,10 +55,11 @@ body {
   font-weight: normal;
 }
 
-.jobt .sm-btn {
+.jobt .sm-href {
   display: flex;
   align-self: flex-end;
   justify-content: center;
+  align-items: center;
   height: 30px;
   width: 120px;
   background-color: rgba(0, 144, 185, 0.66);
@@ -68,4 +69,10 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
+}:visited {
+  text-decoration: none!important;
+  color: inherit;
+}:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
 }

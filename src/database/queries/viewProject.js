@@ -5,9 +5,9 @@ function viewProject(projectId, cb) {
     text: 'SELECT * FROM projects where id=$1',
     values: [projectId],
   };
-  connect.query(sqlQueries, (errorConnectingToDB, res) => {
-    if (errorConnectingToDB) return cb('errorConnectingToDB');
-    return cb(errorConnectingToDB, res);
+  connect.query(sqlQueries, (err, res) => {
+    if (err) return cb(err);
+    return cb(err, res);
   });
 }
 
