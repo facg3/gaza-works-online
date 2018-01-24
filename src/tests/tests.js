@@ -1,8 +1,25 @@
-const test = require('tape');
-const homePage = require('./controllers/homePage');
-const signUp = require('./controllers/signUp');
+const { getHomePage } = require('./controllers/homePage');
+const {
+  postLoginCorrect,
+  postLoginFalsePassword,
+  postLoginFalseUsername,
+  postLoginMissingUsername,
+  postLoginMissingPassword,
+} = require('./controllers/loginTests');
+const {
+  getSignUp,
+  postSignUp200,
+  postBadSignUp,
+} = require('./controllers/signUp');
 
-homePage.getHomePage();
-signUp.getSignUp();
-signUp.postSignUp200();
-signUp.postBadSignUp();
+postLoginCorrect();
+postLoginFalseUsername();
+postLoginFalsePassword();
+postLoginMissingUsername();
+postLoginMissingPassword();
+
+getHomePage();
+
+getSignUp();
+postSignUp200();
+postBadSignUp();

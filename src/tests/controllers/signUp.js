@@ -8,7 +8,10 @@ const getSignUp = () => {
       .get('/signup')
       .expect(200)
       .end((err, res) => {
-        if (err) return err;
+        if (err) {
+          t.fail(err);
+          return t.end();
+        }
         t.equal(res.statusCode, 200, 'Get For (\'/signup\') Should Return with status: 200');
         t.equal(res.res.statusMessage, 'OK', 'Get For (\'/signup\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'text/html', 'Get For (\'/signup\') Should Return with content-type of: text/html');
@@ -31,7 +34,10 @@ const postSignUp200 = () => {
       .set('Accept', 'application/json, text/plain, */*')
       .expect(200)
       .end((err, res) => {
-        if (err) return err;
+        if (err) {
+          t.fail(err);
+          t.end();
+        }
         t.equal(res.statusCode, 200, 'POST For (\'/signup\') Should Return with status: 200');
         t.equal(res.res.statusMessage, 'OK', 'POST For (\'/signup\') Should Return with statuesMessage: OK)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
@@ -54,8 +60,11 @@ const postBadSignUp = () => {
       .set('Accept', 'application/json, text/plain, */*')
       .expect(400)
       .end((err, res) => {
-        if (err) return err;
-        t.equal(res.res.statusCode, 400, 'POST For (\'/signup\') Should Return with status: 400');
+        if (err) {
+          t.fail(err);
+          t.end();
+        }
+        t.equal(res.res.statusCode, 400, 'POST   For (\'/signup\') Should Return with status: 400');
         t.equal(res.res.statusMessage, 'Bad Request', 'POST For (\'/signup\') Should Return with statuesMessage: Bad Request)');
         t.equal(res.type, 'application/json', 'Get For (\'/signup\') Should Return with content-type of: application/json');
         t.end();

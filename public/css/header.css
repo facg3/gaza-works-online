@@ -6,11 +6,11 @@
 }
 
 #log1 {
-	height: 100px;
-	width: 100px;
+	height: 0px;
+	width: 0px;
 	opacity: 0;
 	visibility: hidden;
-	margin: 15% 0 0 20%;
+	margin: 11% 22%;
 	background-color: skyblue;
 	position: fixed;
 	z-index: 1;
@@ -53,6 +53,7 @@
 
 .search-bar {
 	font-size: 45px;
+	height: 30px;
 	color: white;
 }
 
@@ -79,35 +80,29 @@
 	color: lightblue
 }
 
-.invalid-login {
-	font-family: 'Titillium Web', sans-serif;
-	text-align: center;
-	font-size: 16px;
-	position: fixed;
-	width: 45%;
-	height: 100px;
-	z-index: 1;
-	top: 50%;
-	background-color: rgb(0, 128, 153);
-}
-
-.invalid-login button {
-	font-size: 20px;
-}
-
 .invalid-login:not(.active) {
+	display: block;
 	visibility: hidden;
-	right: -1000px;
-	transition: all 1s;
+	width: 50%;
+	height: 0px;
+	z-index: 1;
+	background-color: rgb(0, 128, 153);
+	transition: height 1s;
 }
 
 .invalid-login.active {
 	visibility: visible;
-	right: 30%;
-	transition: all 1s;
+	height: 30px;
+	font-size: 13px;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+	transition: height 1s;
 }
 
 @media only screen and (max-width: 620px) {
+	.invalid-login.active {
+		height: 70px;
+	}
 	.navbar a {
 		display: none;
 	}

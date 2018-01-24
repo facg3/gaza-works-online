@@ -4,9 +4,10 @@
       <li class="nav-elm search-bar">&#9776;</li>
     </div>
     <div class="keys">
-      <li class="nav-elm"><a href="/">Home</a></li>
-      <li class="nav-elm"><a href="/categories">Categories</a></li>
-      <li class="nav-elm"><a href="/signup">Sign Up</a></li>
+      <li class="nav-elm"><a href="#">Home</a></li>
+      <li class="nav-elm"><a href="#">Categories</a></li>
+      {{#unless logged}}
+      <li class="nav-elm"><a href="#">Sign Up</a></li>
       <li class="nav-elm"><a class="login-nav" onclick="showLogin()" name="login-button" value="Login">Login</a></li>
       <!-- login form -->
       <div id="log1" class="login-modal">
@@ -21,28 +22,24 @@
 
             <label><b>Password</b></label>
             <input id="password" type="password" placeholder="Enter Password" name="psw" required="">
-
+            <div class="invalid-login">
+              <h1>Incorrect Login Attempt</h1>
+            </div>
             <button id="logmein" class="submit-button" type="submit">Login</button>
             <button type="button" onclick="hideLogin()" class="cancelbtn">Cancel</button>
-            <label>
             <a style="padding:10px 20px;" href="#">Forgot password?</a>
-      </label>
           </div>
         </form>
       </div>
-      <script type="text/javascript" src="/js/login.js"></script>
-      <div class="invalid-login">
-        <h1>Incorrect Login Attempt</h1>
-        <button type="button" onclick="hideIncorrectLogin()" class="incorrect-login-button">Ok</button>
-      </div>
+      <script type="text/javascript" src="js/login.js"></script>
       <!-- login form end -->
+      {{else}}
+      <li class="nav-elm"><a href="#">Browse</a></li>
+      <li class="nav-elm"><a href="/logout">Logout</a></li>
+      {{/unless}}
     </div>
     <div class="logo">
       <li class="nav-elm logo"><a href="/">GWO</a></li>
-    </div>
-    <div class="search">
-      <li style="float:left" class="nav-elm search-bar" onclick="toggleSearchBox()">&#8981;</li>
-      <input class="search-box" type="text" name="search-box" value="" placeholder="Search...">
     </div>
   </ul>
   <script type="text/javascript" src="/js/header.js"></script>
