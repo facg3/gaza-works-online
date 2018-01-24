@@ -1,8 +1,17 @@
-const insertUser = require('./insertUser');
-const selectUser = require('./selectUser');
+const { selectCatProjects } = require('./selectCatProjects');
+const { selectCategories } = require('./selectCategories');
+const { insertUser } = require('./insertUser');
+const {
+  selectUserByUsername,
+  selectUserByEmail,
+} = require('./selectUser');
+const { viewProject } = require('./viewProject');
 
 module.exports = {
   insertUser,
-  selectUserByUsername: selectUser.selectUserByUsername,
-  selectUserByEmail: selectUser.selectUserByEmail,
+  selectUserByUsername,
+  selectUserByEmail,
+  selectCategories,
+  selectCatProjects,
+  viewProject,
 };

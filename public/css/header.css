@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 * {
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .search-box.toggle-sb {
-	heigh: 15px;
+	height: 15px;
 	width: 70px;
 	visibility: visible;
 	transition: all 1s;
