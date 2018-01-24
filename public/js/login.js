@@ -22,15 +22,15 @@ const hideIncorrectLogin = () => {
   document.getElementsByClassName('invalid-login')[0].classList.remove('active');
 }
 
-const username = document.getElementById('username').value;
-const password = document.getElementById('password').value;
 document.getElementById('logmein').addEventListener('click', (e) => {
   e.preventDefault();
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
   const usernameRegex = /^\w{5,}/;
   const passwordRegex = /^[a-zA-Z0-9!@#$%^&*(){}<>?"']{8,}$/;
-
   if (username && password) {
     if (passwordRegex.test(password) && usernameRegex.test(username)) {
+      console.log('in');
       const body = { username, password };
       const headers = {
         headers: {
@@ -53,6 +53,8 @@ document.getElementById('logmein').addEventListener('click', (e) => {
         .catch((err) => {
           showIncorrectLogin();
         });
+    } else {
+      showIncorrectLogin();
     }
   }
 });

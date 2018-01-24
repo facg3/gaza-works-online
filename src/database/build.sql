@@ -1,64 +1,67 @@
 BEGIN;
 
-DROP TABLE users, projects, proposals, comments, categories, skills IF EXISTS;
+DROP TABLE IF EXISTS users, projects, proposals, categories, skills, users_skills, projects_skills CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(31) NOT NULL,
-  email VARCHAR(127) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  fname VARCHAR(63),
-  lname VARCHAR(63),
-  address VARCHAR(127),
-  skills VARCHAR,
-  phone VARCHAR(31),
-  contact_info VARCHAR,
-  photo VARCHAR(255),
-  bio VARCHAR(511),
+  username TEXT NOT NULL,
+  email TEXT NOT NULL,
+  password TEXT NOT NULL,
+  full_name TEXT,
+  address TEXT,
+  phone TEXT,
+  contact_info TEXT,
+  photo TEXT,
+  bio TEXT,
   dob DATE,
-  rating INTEGER
-);
-
-CREATE TABLE projects (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id) NOT NULL,
-  title VARCHAR(127),
-  skills VARCHAR,
-  dateline DATE,
-  category_id INTEGER REFERENCES categories(id),
-  price INTEGER CHECK (price > 0),
-  desciprtion VARCHAR
-);
-
-CREATE TABLE proposals (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id) NOT NULL,
-  project_id INTEGER REFERENCES projects(id) NOT NULL,
-  skills VARCHAR,
-  pay INTEGER CHECK (pay > 0),
-  whyme VARCHAR(511),
-  state INTEGER CHECK (state < 3 AND state >= 0),
-  date DATE
+  rating INTEGER CHECK (rating >=0 AND rating <=5),
+  status INTEGER CHECK (status >=0 AND status <= 1)
 );
 
 CREATE TABLE categories (
-  id SERIAL PRIMARY KEY NOT NULL,
-  category VARCHAR(63)
+  id SERIAL PRIMARY KEY,
+  category TEXT NOT NULL
 );
 
 CREATE TABLE skills (
-  id SERIAL PRIMARY KEY NOT NULL,
-  category VARCHAR(63),
-  parentCatId INTEGER REFERENCES categories(id) NOT NULL
+  id SERIAL PRIMARY KEY,
+  skill TEXT NOT NULL,
+  cat_id INTEGER REFERENCES categories(id) NOT NULL
 );
 
-CREATE TABLE comments (
-  id SERIAL PRIMARY KEY NOT NULL,
+CREATE TABLE projects (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) NOT NULL,
+  title TEXT,
+  deadline DATE,
+  category_id INTEGER REFERENCES categories(id),
+  budget INTEGER CHECK (price > 0),
+  description TEXT,
+  status INTEGER CHECK (status >=0 AND status <= 1)
+);
+
+CREATE TABLE proposals (
+  id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) NOT NULL,
   project_id INTEGER REFERENCES projects(id) NOT NULL,
-  proposal_id INTEGER REFERENCES proposals(id),
-  content VARCHAR(1023),
-  date DATE
+  cost INTEGER CHECK (cost >= 0) NOT NULL,
+  content TEXT NOT NULL,
+  skill_id INTEGER REFERENCES skills(id) NOT NULL,
+  date DATE NOT NULL,
+  status INTEGER CHECK (status >=0 AND stapricetus <= 2)
+);
+
+CREATE TABLE users_skills (
+  id SERIAL PRIMARY KEY,
+  skill_id INTEGER REFERENCES skills(id) NOT NULL,
+  user_id INTEGER REFERENCES users(id)
+);
+
+CREATE TABLE projects_skills (
+  id SERIAL PRIMARY KEY,
+  skill_id INTEGER REFERENCES skills(id) NOT NULL,
+  cost INTEGER CHECK (cost >=0) NOT NULL,
+  project_id INTEGER REFERENCES projects(id)
 );
 
 COMMIT;

@@ -1,6 +1,6 @@
 const check = (req, res, next) => {
   if (req.cookies) {
-    req.logged = req.cookies.logged_in && true;
+    req.logged = Boolean(req.cookies.logged_in);
   }
   next();
 }
