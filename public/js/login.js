@@ -27,7 +27,7 @@ document.getElementById('logmein').addEventListener('click', (e) => {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   const usernameRegex = /^\w{5,}/;
-  const passwordRegex = /^[a-zA-Z0-9!@#$%^&*(){}<>?"']{8,}$/;
+  const passwordRegex = /^[a-zA-Z0-9!\.@#$%^&*(){}<>?"']{8,}$/;
   if (username && password) {
     if (passwordRegex.test(password) && usernameRegex.test(username)) {
       console.log('in');
