@@ -54,3 +54,25 @@ body {
   font-family: 'Muli', sans-serif;
   font-weight: normal;
 }
+
+.jobt .sm-href {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 120px;
+  background-color: rgba(0, 144, 185, 0.66);
+  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 3px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}:visited {
+  text-decoration: none!important;
+  color: inherit;
+}:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
