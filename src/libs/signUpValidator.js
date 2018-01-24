@@ -4,7 +4,7 @@ const signUpSchema = {
   username: joi.string().alphanum().min(5).max(30)
     .required(),
   email: joi.string().email(),
-  pwd: joi.string().regex(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/),
+  pwd: joi.string().regex(/^[a-zA-Z0-9!\.@#$%^&*(){}<>?"']{8,}$/),
   pwdConfirmation: joi.string().valid(joi.ref('pwd')).required(),
 };
 

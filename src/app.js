@@ -4,12 +4,18 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+
+const app = express();
+
 const controllers = require('./controllers/mainController');
 const validators = require('./libs/validators');
 const { Error500ServerError } = require('./controllers/errors');
 
 
-const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.raw({ type: () => true }));
 
 app.set('port', process.env.PORT || 4001);
 app.use(express.static(path.join(__dirname, '..', 'public')));

@@ -1,0 +1,19 @@
+<section class="page-start">
+  <h3 class="head-cat">{{reqCategory}}</h3>
+  <div class="lower-div">
+    {{#each projects}}
+    <div class="jobt">
+      <h3 class="job-heads">Title: <span class="job-details">{{title}}</span></h2>
+      <div>
+        <h4 class="job-heads">Skills Required: <span  class="job-details" class="job-details">{{skills}}</span></h3>
+        <h4 class="job-heads">Budget: <span  class="job-details">{{budget}} $</span></h4>
+        <h4 class="job-heads">Lifetime: <span  class="job-details">{{lifetime}} days</span></h4>
+        <h4 class="job-heads">Description: <br>
+          <p class="job-details">{{description}}</p>
+        </h4>
+      </div>
+      <a href="{{link}}" class="sm-href">Details</a>
+    </div>
+    {{/each}}
+  </div>
+</section>
