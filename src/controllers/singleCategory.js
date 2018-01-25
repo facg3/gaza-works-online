@@ -9,13 +9,12 @@ exports.get = (req, res, next) => {
       return next(err);
     }
     const projects = result.map((project) => {
-      console.log(project);
       const newProject = project;
-      newProject.link = `${project.title}-${project.id}`.replace(/ /g, '-').toLowerCase();
+      newProject.link = `${singleCategory}/${project.title}-${project.id}`.replace(/ /g, '-').toLowerCase();
       return newProject;
     });
     return res.render('singleCategory', {
-      projects, reqCategory, style: 'singleCategory', title: reqCategory.toUpperCase(),
+      projects, reqCategory, style: 'singleCategory', title: reqCategory.toUpperCase(), logged: req.logged,
     });
   });
 };

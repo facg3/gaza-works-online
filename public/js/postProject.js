@@ -2,20 +2,21 @@ const select = sth => document.querySelector(sth);
 
 select('.submit').addEventListener('click', (e) => {
   e.preventDefault();
-  const title = select('.query.title input').value;
-  const deadline = select('.query.deadline input').value;
-  const lifetime = select('.query.lifetime input').value;
-  const categories = select('.query.categories input').value;
-  const budget = select('.query.budget input').value;
-  const description = select('.query.description textarea').value;
+  const title = select('#title input').value;
+  const deadline = select('#deadline input').value;
+  const lifetime = select('#lifetime input').value;
+  const categories = select('#categories input').value;
+  const budget = select('#budget input').value;
+  const description = select('#description textarea').value;
   const body = {
     title,
     deadline,
     lifetime,
     categories,
     budget,
-    description
+    description,
   };
+  console.log(body);
   const headers = {
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -28,5 +29,5 @@ select('.submit').addEventListener('click', (e) => {
   fetch('/postProject', headers)
     .then(res => res.json)
     .then(res => console.log(res))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 });

@@ -14,12 +14,13 @@ exports.get = (req, res, next) => {
     }
     const { singleCategory } = req.params;
     const category = singleCategory.replace(/-/g, ' ');
+    console.log(result.rows[0]);
     return res.render('viewProject', {
       title: `${result.rows[0].title}`,
       style: 'viewProject',
       category,
       projectDetails: result.rows[0],
-      logged: req.logged
+      logged: req.logged,
     });
   });
 };
