@@ -1,0 +1,37 @@
+<section class="landing">
+  <h1>Post A Project</h1>
+  <form>
+    <div class="query" id="title">
+      <label>Title</label>
+      <input type="text" name="project-title" placeholder="Enter the title of the project..." required>
+    </div>
+    <div class="query" id="deadline">
+      <label>DeadLine</label>
+      <input type="date" name="proposing-deadline" required>
+    </div>
+    <div class="query" id="lifetime">
+      <label>Lifetime</label>
+      <input type="text" name="project-lifetime" placeholder="For How Much Long?" required>
+    </div>
+    <div class="query" id="categories">
+      <label>Class</label><br>
+      <select>
+        {{#each newCats}}
+        <option value={{catValue}}>{{category}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="query" id="budget">
+      <label>Budget</label>
+      <input type="number" name="project-budget" value="0" min="0" required>
+    </div>
+    <div class="query" id="description">
+      <label>Description</label>
+      <textarea name="project-description" rows="8" cols="80" placeholder="What are your thoughts?" required></textarea>
+    </div>
+    <div class="query">
+      <input class="submit" type="submit" name="submit" value="Submit Project">
+    </div>
+  </form>
+</section>
+<script type="text/javascript" src="/js/postProject.js"></script>

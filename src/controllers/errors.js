@@ -3,7 +3,6 @@ const Error404NotFound = (req, res) => {
 };
 
 const Error500ServerError = (err, req, res, next) => {
-  console.log(err);
   res.status(500).render('500', { layout: false });
 };
 

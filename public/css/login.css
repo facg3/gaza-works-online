@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
-input[type=text], input[type=password] {
+#log1 input[type=text],#log1 input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -10,8 +10,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
-    background: none;
+#log1 button {
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -20,7 +19,7 @@ button {
     width: 100%;
 }
 
-button:hover {
+#log1 button:hover {
     opacity: 0.8;
 }
 
@@ -38,7 +37,7 @@ button:hover {
     position: relative;
 }
 
-img.avatar {
+#log1 img.avatar {
     width: 40%;
     border-radius: 50%;
 }
@@ -76,7 +75,7 @@ img.avatar {
     margin: 4%;
 }
 
-span.psw {
+#log1 span.psw {
     float: right;
     padding-top: 16px;
 }
@@ -138,7 +137,7 @@ span.psw {
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
-    span.psw {
+    #log1 span.psw {
        display: block;
        float: none;
     }

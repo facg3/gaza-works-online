@@ -1,8 +1,16 @@
+const jwt = require('jsonwebtoken');
+require('env2')('config.env');
+
+const { SECRET } = process.env;
+
 const check = (req, res, next) => {
   if (req.cookies) {
-    req.logged = Boolean(req.cookies.logged_in);
-  }
+    jwt.verify(req.cookies.accessToken, SECRET, (err) => {
+      if (err) req.allowed = false;
+      else req.logged = true;
+    });
+  } else req.logged = false;
   next();
-}
+};
 
 module.exports = check;

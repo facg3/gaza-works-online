@@ -14,7 +14,7 @@ exports.get = (req, res, next) => {
       return newProject;
     });
     return res.render('singleCategory', {
-      projects, reqCategory, style: 'singleCategory', title: reqCategory.toUpperCase(),
+      projects, reqCategory, style: 'singleCategory', title: reqCategory.toUpperCase(), logged: req.logged,
     });
   });
 };

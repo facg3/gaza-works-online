@@ -11,7 +11,7 @@ exports.get = (req, res) => {
     });
 
     return res.render('categories', {
-      title: 'Categories', style: 'categories', category: result,
+      title: 'Categories', style: 'categories', category: result, logged: req.logged,
     });
   });
 };

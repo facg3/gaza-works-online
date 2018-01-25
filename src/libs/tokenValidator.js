@@ -6,15 +6,10 @@ const { SECRET } = process.env;
 const validate = (req, res, next) => {
   if (req.cookies && req.cookies.logged_in) {
     jwt.verify(req.cookies.accessToken, SECRET, (err) => {
-      if (err) {
-        res.allowed = false;
-      } else {
-        res.allowed = true;
-      }
+      if (err) req.allowed = false;
+      else req.allowed = true;
     });
-  } else {
-    res.allowed = true;
-  }
+  } else req.allowed = true;
   next();
 };
 
