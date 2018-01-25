@@ -8,6 +8,7 @@ const signUp = require('./signUp');
 const log = require('./log');
 const { Error404NotFound } = require('./errors');
 const viewProject = require('./viewProject');
+const project = require('./project');
 
 const router = express.Router();
 
@@ -19,6 +20,8 @@ router.post('/signup', validators.signUpValidator, signUp.post);
 router.get('/categories', categories.get);
 router.get('/categories/:singleCategory', singleCategory.get);
 router.get('/categories/:singleCategory/:singleProject', viewProject.get);
+router.get('/postProject', project.get);
+router.post('/postProject', project.post);
 router.use(Error404NotFound);
 
 module.exports = router;

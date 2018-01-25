@@ -1,3 +1,4 @@
+const path = require('path');
 const { viewProject } = require('../database/queries/queries');
 
 exports.get = (req, res, next) => {
@@ -14,7 +15,11 @@ exports.get = (req, res, next) => {
     const { singleCategory } = req.params;
     const category = singleCategory.replace(/-/g, ' ');
     return res.render('viewProject', {
-      title: `${result.rows[0].title}`, style: 'viewProject', category, projectDetails: result.rows[0],
+      title: `${result.rows[0].title}`,
+      style: 'viewProject',
+      category,
+      projectDetails: result.rows[0],
+      logged: req.logged
     });
   });
 };

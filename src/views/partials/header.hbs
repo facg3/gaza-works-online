@@ -27,19 +27,26 @@
             </div>
             <button id="logmein" class="submit-button" type="submit">Login</button>
             <button type="button" onclick="hideLogin()" class="cancelbtn">Cancel</button>
-            <a style="padding:10px 20px;" href="#">Forgot password?</a>
+            <button type="button" onclick="hideLogin()" class="frgtpassbtn">Forgot password?</button>
           </div>
         </form>
       </div>
-      <script type="text/javascript" src="js/login.js"></script>
-      <!-- login form end -->
+      <script type="text/javascript" src="/js/login.js"></script>
       {{else}}
-      <li class="nav-elm"><a href="#">Browse</a></li>
+      <li class="nav-elm">
+        <a href="#" onclick="showBrowse()">Browse</a>
+        <div class="browse-bar">
+          <ul>
+            <a href="/postProject">Post Project</a>
+          </ul>
+        </div>
+      </li>
       <li class="nav-elm"><a href="/logout">Logout</a></li>
+      <script src="/js/browse.js"></script>
       {{/unless}}
     </div>
     <div class="logo">
-      <li class="nav-elm logo"><a href="/">GWO</a></li>
+      <li class="nav-elm logo"><a href="/postProject">GWO</a></li>
     </div>
   </ul>
   <script type="text/javascript" src="/js/header.js"></script>

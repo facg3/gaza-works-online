@@ -34,6 +34,7 @@ CREATE TABLE projects (
   user_id INTEGER REFERENCES users(id) NOT NULL,
   title TEXT,
   deadline DATE,
+  lifetime DATE,
   category_id INTEGER REFERENCES categories(id),
   budget INTEGER CHECK (price > 0),
   description TEXT,

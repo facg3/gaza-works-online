@@ -51,7 +51,13 @@ const signUp = () => {
 
   fetch('/signup', headers)
     .then(res => res.json())
-    .then(res => errSpan(res.msg))
+    .then((res) => {
+      if (res.msg !== 'UserSuccessfullyInserted') {
+        errSpan(res.msg);
+      } else {
+        window.location = '/';
+      }
+    })
     .catch(err => errSpan(err.msg));
 };
 

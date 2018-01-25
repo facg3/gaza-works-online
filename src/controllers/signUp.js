@@ -6,7 +6,7 @@ const {
 const bcrypt = require('../libs/bcrypt');
 
 exports.get = (req, res) => {
-  res.render('signUp', { title: 'Gaza Works Online - Sign Up', style: 'signUp' });
+  res.render('signUp', { title: 'Gaza Works Online - Sign Up', style: 'signUp', logged: req.logged });
 };
 
 exports.post = (req, res) => {
@@ -46,7 +46,7 @@ exports.post = (req, res) => {
           }
           // The response Below will be modified to redirect to profile page once it's implemented
           return res.send({
-            msg: 'User Successfully Inserted',
+            msg: 'UserSuccessfullyInserted',
           });
         });
       });

@@ -9,8 +9,9 @@ exports.get = (req, res, next) => {
       return next(err);
     }
     const projects = result.map((project) => {
+      console.log(project);
       const newProject = project;
-      newProject.link = `${singleCategory}/${project.title}-${project.id}`.replace(/ /g, '-').toLowerCase();
+      newProject.link = `${project.title}-${project.id}`.replace(/ /g, '-').toLowerCase();
       return newProject;
     });
     return res.render('singleCategory', {
