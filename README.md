@@ -18,10 +18,10 @@ We're a team of three:
 2. Submit Proposals: a user can submit a job proposal for any project that have been posted into GWO, and then waits for a response from project owners for approving the proposal or declining it.
 3. Browse: a user can choose from Browse option to do one of the following:
 
- A: Browse Categories: allows users to navigate through existing categories in GWO.
+  A: Browse Categories: allows users to navigate through existing categories in GWO.
  
- B: Browse Freelancers: allows users to navigate through existing users list in GWO.
+  B: Browse Freelancers: allows users to navigate through existing users list in GWO.
  
- C: Stream: allows users to keep up with categorie/users who he have followed.
+  C: Stream: allows users to keep up with categorie/users who he have followed.
  
 4. Rating: a user is capable to rate team members after a project is completed.
