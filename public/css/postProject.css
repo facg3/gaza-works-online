@@ -18,7 +18,7 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
-.query input , .query textarea{
+.query input , .query textarea, .query select{
   display: block;
   font-size: 14px;
   width:70vw;
@@ -31,12 +31,21 @@ body {
   resize: none;
 }
 
+.query select{
+  background-color: white;
+  width: 100%;
+}
+
 .query input:hover,
 .query input:focus {
   opacity: .7;
   color:#08c;
   border: 1px solid #08c;
    box-shadow: 0px 1px 0px rgba(255,255,255,.25),inset 0px 3px 6px rgba(0,0,0,.25);
+}
+
+.query .submit {
+  background-color: #71ff00;;
 }
 
 .query label {

@@ -2,21 +2,14 @@ const select = sth => document.querySelector(sth);
 
 select('.submit').addEventListener('click', (e) => {
   e.preventDefault();
-  const title = select('#title input').value;
-  const deadline = select('#deadline input').value;
-  const lifetime = select('#lifetime input').value;
-  const categories = select('#categories input').value;
-  const budget = select('#budget input').value;
-  const description = select('#description textarea').value;
   const body = {
-    title,
-    deadline,
-    lifetime,
-    categories,
-    budget,
-    description,
+    title: select('#title input').value,
+    deadline: select('#deadline input').value,
+    lifetime: select('#lifetime input').value,
+    categories: select('#categories select').value,
+    budget: select('#budget input').value,
+    description: select('#description textarea').value,
   };
-  console.log(body);
   const headers = {
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -28,6 +21,12 @@ select('.submit').addEventListener('click', (e) => {
   };
   fetch('/postProject', headers)
     .then(res => res.json)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    .then((res) => {
+      if (res.msg === 'ProjectSubmittedSuccessfully') {
+        console.log(res.msg);
+        // window.location.pathname = '/categories';
+      }
+      return alert(res.msg);
+    })
+    .catch(err => alert(err));
 });

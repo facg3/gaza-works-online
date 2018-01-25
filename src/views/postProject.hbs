@@ -14,8 +14,12 @@
       <input type="text" name="project-lifetime" placeholder="For How Much Long?" required>
     </div>
     <div class="query" id="categories">
-      <label>Class</label>
-      <input type="text" name="related-categories" placeholder="Enter related categories..." required>
+      <label>Class</label><br>
+      <select>
+        {{#each newCats}}
+        <option value={{catValue}}>{{category}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="query" id="budget">
       <label>Budget</label>

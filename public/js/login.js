@@ -16,11 +16,11 @@ function showLogin() {
 
 const showIncorrectLogin = () => {
   document.getElementsByClassName('invalid-login')[0].classList.add('active');
-}
+};
 
 const hideIncorrectLogin = () => {
   document.getElementsByClassName('invalid-login')[0].classList.remove('active');
-}
+};
 
 document.getElementById('logmein').addEventListener('click', (e) => {
   e.preventDefault();
@@ -30,7 +30,6 @@ document.getElementById('logmein').addEventListener('click', (e) => {
   const passwordRegex = /^[a-zA-Z0-9!\.@#$%^&*(){}<>?"']{8,}$/;
   if (username && password) {
     if (passwordRegex.test(password) && usernameRegex.test(username)) {
-      console.log('in');
       const body = { username, password };
       const headers = {
         headers: {

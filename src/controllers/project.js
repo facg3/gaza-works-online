@@ -1,4 +1,4 @@
-const { insertProject } = require('../database/queries/queries');
+const { insertProject, selectCategories } = require('../database/queries/queries');
 const jwt = require('jsonwebtoken');
 require('env2')('config.env');
 
@@ -25,7 +25,19 @@ exports.post = (req, res) => {
 
 exports.get = (req, res) => {
   if (req.logged) {
-    res.render('postProject', { title: 'Post Project', style: 'postProject', logged: true });
+    selectCategories((catsErr, catsRes) => {
+      if (catsErr) {
+        return new Error('Could not fetch properly');
+      }
+      const newCats = catsRes.map((cat) => {
+        const newCat = cat;
+        newCat.catValue = cat.category.replace(/ /g, '-');
+        return newCat;
+      });
+      return res.render('postProject', {
+        title: 'Post Project', newCats, style: 'postProject', logged: true,
+      });
+    });
   } else {
     res.status(401).send({ msg: '401 Error! Unauthorized' });
   }
